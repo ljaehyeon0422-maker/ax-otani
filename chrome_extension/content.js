@@ -123,9 +123,7 @@ async function sendNow(settings) {
 function scheduleRefresh(settings) {
   if (!settings.enabled) return;
   const seconds = Math.max(120, Number(settings.refreshSeconds) || 180);
-  setTimeout(() => {
-    if (document.visibilityState === "visible") location.reload();
-  }, seconds * 1000);
+  setTimeout(() => location.reload(), seconds * 1000);
 }
 
 chrome.storage.sync.get(DEFAULTS, (settings) => {
