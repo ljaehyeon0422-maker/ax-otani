@@ -16,7 +16,8 @@ GUILD_ID=int(os.getenv("DISCORD_GUILD_ID","0") or 0)
 CHANNEL_ID=int(os.getenv("DISCORD_ALERT_CHANNEL_ID","0") or 0)
 POLL=int(os.getenv("POLL_SECONDS","60")); MAX_BACKOFF=int(os.getenv("MAX_BACKOFF_SECONDS","900"))
 FEED=JsonFeed(os.getenv("CGV_FEED_URL"))
-PUBLIC_PAGE_URL=os.getenv("CGV_PUBLIC_PAGE_URL","").strip()
+DEFAULT_PUBLIC_PAGE_URL="https://cgv.co.kr/cnm/movieBook/cinema?siteNm=CGV%EC%9A%A9%EC%82%B0&siteNo=0013"
+PUBLIC_PAGE_URL=os.getenv("CGV_PUBLIC_PAGE_URL",DEFAULT_PUBLIC_PAGE_URL).strip()
 PUBLIC_PAGE_KEYWORDS=[x.strip() for x in os.getenv("CGV_PUBLIC_PAGE_KEYWORDS","IMAX,아이맥스").split(",") if x.strip()]
 PUBLIC_PAGE_POLL=int(os.getenv("CGV_PUBLIC_PAGE_POLL_SECONDS","180"))
 PUBLIC_PAGE_MAX_BACKOFF=int(os.getenv("CGV_PUBLIC_PAGE_MAX_BACKOFF_SECONDS","1800"))
