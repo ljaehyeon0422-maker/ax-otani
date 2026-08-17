@@ -171,11 +171,3 @@ CGV 앱에서 바로 확인하세요.
 👉 [`TECHNICAL.md`](./TECHNICAL.md)
 
 <br>
-
-## 🙏 참고 프로젝트
-
-사용자 이용 흐름과 README 구성은 아래 오픈소스 프로젝트를 참고했습니다.
-
-- [`0w0i0n0g0/cgv-open-push`](https://github.com/0w0i0n0g0/cgv-open-push)
-
-원본 프로젝트의 코드를 직접 포함하거나 수정하여 사용하는 경우 해당 프로젝트의 라이선스 조건을 별도로 확인해야 합니다.
