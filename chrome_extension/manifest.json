@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "용산 IMAX 취소표 브리지",
+  "version": "0.1.0",
+  "description": "CGV 페이지에 정상 표시된 잔여좌석 숫자를 로컬 Discord 봇에 전달합니다.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://cgv.co.kr/*",
+    "https://www.cgv.co.kr/*",
+    "http://127.0.0.1:8765/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "용산 IMAX 취소표 브리지",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://cgv.co.kr/*", "https://www.cgv.co.kr/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
