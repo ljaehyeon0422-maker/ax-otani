@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>용산 IMAX 취소표 브리지</title>
+  <style>
+    body { font-family: system-ui, sans-serif; width: 300px; margin: 14px; }
+    h3 { margin: 0 0 12px; }
+    label { display: block; font-size: 12px; margin: 10px 0 4px; }
+    input[type=text], input[type=number] { width: 100%; box-sizing: border-box; padding: 7px; }
+    button { margin-top: 12px; width: 100%; padding: 8px; }
+    .row { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+    .hint { font-size: 11px; opacity: .72; line-height: 1.45; margin-top: 10px; }
+    #status { margin-top: 10px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h3>🎬 용산 IMAX 취소표 브리지</h3>
+  <div class="row"><input id="enabled" type="checkbox" /><label for="enabled" style="margin:0">감시 활성화</label></div>
+  <label for="movieKeyword">영화 키워드</label>
+  <input id="movieKeyword" type="text" placeholder="오디세이" />
+  <label for="formatKeyword">상영관 키워드</label>
+  <input id="formatKeyword" type="text" placeholder="IMAX" />
+  <label for="refreshSeconds">페이지 확인 간격(초, 최소 120)</label>
+  <input id="refreshSeconds" type="number" min="120" step="30" />
+  <button id="save">저장</button>
+  <div id="status"></div>
+  <div class="hint">CGV 페이지에 정상 표시되는 잔여좌석 숫자만 읽습니다. 로그인 정보·쿠키·보안 헤더는 수집하지 않습니다.</div>
+  <script src="popup.js"></script>
+</body>
+</html>
