@@ -15,6 +15,15 @@ class Store:
           enabled INTEGER NOT NULL DEFAULT 1);
         CREATE TABLE IF NOT EXISTS seen_state(watch_id INTEGER, showing_key TEXT, sig TEXT NOT NULL,
           PRIMARY KEY(watch_id,showing_key));
+        CREATE TABLE IF NOT EXISTS browser_seat_state(
+          showing_key TEXT PRIMARY KEY,
+          movie_name TEXT,
+          watch_date TEXT,
+          start_time TEXT,
+          remaining INTEGER NOT NULL,
+          context TEXT,
+          updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
         """)
         self.conn.commit()
 
@@ -63,3 +72,23 @@ class Store:
         self.conn.execute("INSERT INTO seen_state(watch_id,showing_key,sig) VALUES(?,?,?) ON CONFLICT(watch_id,showing_key) DO UPDATE SET sig=excluded.sig",
                           (watch_id,showing_key,json.dumps(sorted(sig))))
         self.conn.commit()
+
+    def get_browser_remaining(self, showing_key: str) -> int | None:
+        row=self.conn.execute("SELECT remaining FROM browser_seat_state WHERE showing_key=?",(showing_key,)).fetchone()
+        return int(row[0]) if row else None
+
+    def set_browser_remaining(self, showing_key: str, movie_name: str, watch_date: str, start_time: str,
+                              remaining: int, context: str = "") -> None:
+        self.conn.execute(
+            """INSERT INTO browser_seat_state(showing_key,movie_name,watch_date,start_time,remaining,context,updated_at)
+               VALUES(?,?,?,?,?,?,CURRENT_TIMESTAMP)
+               ON CONFLICT(showing_key) DO UPDATE SET movie_name=excluded.movie_name,watch_date=excluded.watch_date,
+               start_time=excluded.start_time,remaining=excluded.remaining,context=excluded.context,updated_at=CURRENT_TIMESTAMP""",
+            (showing_key,movie_name,watch_date,start_time,int(remaining),context[:1500]),
+        )
+        self.conn.commit()
+
+    def list_browser_states(self, limit: int = 10):
+        return self.conn.execute(
+            "SELECT * FROM browser_seat_state ORDER BY updated_at DESC LIMIT ?",(limit,)
+        ).fetchall()
