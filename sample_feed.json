@@ -1,0 +1,46 @@
+{
+  "showings": [
+    {
+      "key": "yongsan-imax-demo-20260823-1940",
+      "movie_id": "demo-001",
+      "movie_name": "테스트 영화",
+      "date": "2026-08-23",
+      "start_time": "19:40",
+      "total_seats": 40,
+      "remaining_seats": 3,
+      "seats": [
+        {"row":"A","number":1,"available":false},
+        {"row":"A","number":2,"available":false},
+        {"row":"B","number":1,"available":false},
+        {"row":"B","number":2,"available":false},
+        {"row":"C","number":1,"available":false},
+        {"row":"C","number":2,"available":false},
+        {"row":"D","number":1,"available":false},
+        {"row":"D","number":2,"available":false},
+        {"row":"E","number":1,"available":false},
+        {"row":"E","number":2,"available":false},
+        {"row":"F","number":1,"available":false},
+        {"row":"F","number":2,"available":false},
+        {"row":"G","number":1,"available":false},
+        {"row":"G","number":2,"available":false},
+        {"row":"H","number":1,"available":false},
+        {"row":"H","number":2,"available":true},
+        {"row":"H","number":3,"available":true},
+        {"row":"H","number":4,"available":false},
+        {"row":"I","number":1,"available":false},
+        {"row":"I","number":2,"available":true},
+        {"row":"I","number":3,"available":false},
+        {"row":"J","number":1,"available":false},
+        {"row":"J","number":2,"available":false},
+        {"row":"K","number":1,"available":false},
+        {"row":"K","number":2,"available":false},
+        {"row":"L","number":1,"available":false},
+        {"row":"L","number":2,"available":false},
+        {"row":"M","number":1,"available":false},
+        {"row":"M","number":2,"available":false},
+        {"row":"N","number":1,"available":false},
+        {"row":"N","number":2,"available":false}
+      ]
+    }
+  ]
+}
